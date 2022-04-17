@@ -1,0 +1,165 @@
+
+punto 1
+    Select nombre, profesion from clientes ORDER BY nombre;
+    nombre   	profesion	
+    Alejandro	Programador	
+    Alfred	Programador	
+    Alicia	Ejecutivo de ventas	
+    Ana	Desarrollador Web	
+    Arturo	Especialista Multimedia	
+    Daniel	Administrador de sistemas	
+    Eduardo	Programador	
+    Gonzalo	Programador Senior	
+    Hernan	Especialista Multimedia	
+    Jimena	Diseñador Web	
+    Jose	Ejecutivo de ventas	
+    Juan	Programador Senior	
+    Juan	Programador	
+    Maria	Desarrollador Web	
+    Mariano	Presidente	
+    Miguel	Ejecutivo de Ventas Senior	
+    Monica	Ejecutivo de ventas	
+    Pablo	Especialista Multimedia	
+    Pedro	Gerente de finanzas	
+    Roberto	Administrador de sistemas	
+    Sabrina	Gerente de Soporte tecnico	
+
+punto 2
+    Select nombre, edad from clientes order by nombre ASC;
+    nombre   	edad	
+    Alejandro	32	
+    Alfred	    31	
+    Alicia	    27	
+    Ana	        27	
+    Arturo	    32	
+    Daniel	    34	
+    Eduardo	    25	
+    Gonzalo	    32	
+    Hernan	    33	
+    Jimena	    32	
+    Jose	    27	
+    Juan	    32	
+    Juan	    36	
+    Maria	    26	
+    Mariano	    28	
+    Miguel	    36	
+    Monica	    30	
+    Pablo	    43	
+    Pedro	    36	
+    Roberto	    35	
+    Sabrina	    32	
+
+punto 3
+Select nombre, edad, profesion from clientes where profesion='programador';
+nombre	edad	profesion	
+Alfred	31	Programador	
+Juan	36	Programador	
+Eduardo	25	Programador	
+Alejandro	32	Programador	
+
+punto 4
+Select nombre, apellido from clientes where edad >30;
+nombre	apellido	
+Juan	Hagan	
+Gonzalo	Pillai	
+Alfred	Fernandez 	
+Juan	Agüero	
+Alejandro	Nanda	
+Hernan	Rosso	
+Pablo	Simon	
+Arturo	Hernandez	
+Jimena	Cazado	
+Roberto	Luis	
+Daniel	Gutierrez	
+Miguel	Harper	
+Sabrina	Allende	
+Pedro	Campeon	
+
+
+punto 5
+Select apellido, email from clientes where nombre='Juan' order by apellido;
+apellido   	email	
+Agüero	juan@bignet.com	
+Hagan	juan_hagan@bignet.com	
+
+punto 6
+Select nombre from clientes where profesion='programador' or profesion='desarrollador web' order by nombre;
+nombre   	
+Alejandro	
+Alfred	
+Ana	
+Eduardo	
+Juan	
+Maria	
+
+punto 7 
+Select id_cliente, nombre, apellido, profesion  from clientes where id_cliente between '15' and '20' order by id_cliente;
+id_cliente   	nombre	apellido	profesion	
+15	            Roberto	Luis	    Administrador de sistemas	
+16	            Daniel	Gutierrez	Administrador de sistemas	
+17	            Miguel	Harper	    Ejecutivo de Ventas Senior	
+18	            Monica	Sanchez     Ejecutivo de ventas	
+19	            Alicia	Simla	    Ejecutivo de ventas	
+20	            Jose	Iriarte	    Ejecutivo de ventas	
+
+
+punto 8
+Select nombre, apellido, profesion from clientes where profesion='programador' and salario<80000;
+nombre	apellido	profesion	
+Alfred	Fernandez 	Programador	
+Alejandro	Nanda	Programador	
+
+
+punto 9
+Select nombre, apellido  from clientes where profesion='programador' AND salario between 75000 and 90000;
+nombre	apellido	
+Alfred	Fernandez 	
+Juan	Agüero	
+Eduardo	Sacan	
+
+punto 10
+Select nombre, apellido from clientes where apellido like'S%';
+nombre	apellido	
+Eduardo	Sacan	
+Pablo	Simon	
+Monica	Sanchez 	
+Alicia	Simla	
+
+
+punto 11
+Select nombre, apellido from clientes where nombre like '%l' order by nombre;
+nombre   	apellido	
+Daniel	Gutierrez	
+Miguel	Harper	
+
+
+punto 12 (mi tabla tenia id_client 23 grabado)
+
+INSERT INTO clientes VALUES (24, 'Mariano', 'Dharma', 'Presidente', 28, 300000, 'mariano@bignet.com');
+SELECT nombre, apellido, edad, profesion, salario, email from clientes where id_cliente=24;
+Mariano	Dharma	28	Presidente	300000	mariano@bignet.com	
+
+INSERT INTO clientes VALUES (25, 'Francisco', 'Perez', 'Programador', 26, 90000, 'francisco@bignet.com');
+SELECT nombre, apellido, edad, profesion, salario, email from clientes where id_cliente=25;
+Francisco	Perez	26	Programador	90000	francisco@bignet.com	
+
+punto 13
+SELECT nombre, apellido, id_cliente FROM clientes WHERE apellido='Rosso';
+Hernan	Rosso	11	
+DELETE from clientes WHERE id_cliente=11
+select id_cliente FROM clientes WHERE id_cliente=11;
+ MySQL ha devuelto un conjunto de valores vacío (es decir: cero columnas). (La consulta tardó 0,0007 segundos.)
+
+punto 14
+SELECT nombre, apellido, id_cliente, salario FROM clientes WHERE nombre= 'Daniel' and apellido='Gutierrez';
+Daniel	Gutierrez	16	900000	
+
+UPDATE clientes
+set salario=90000
+WHERE id_cliente=16
+ 1 fila afectada. (La consulta tardó 0,0030 segundos.)
+
+SELECT nombre, apellido, id_cliente, salario FROM clientes WHERE id_cliente=16;
+Daniel	Gutierrez	16	90000	
+
+
